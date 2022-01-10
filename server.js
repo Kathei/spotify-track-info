@@ -2,6 +2,10 @@ const express = require('express');
 const app = express(); 
 const port = process.env.PORT || 5000; 
 const axios = require('axios');
+var request = require('request');
+
+var client_id = process.env.CLIENT_ID
+var client_secret = process.env.CLIENT_SECRET
 
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`)); 
@@ -10,16 +14,10 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 app.get('/search', (req, res) => { 
   console.log('jee');
   console.log('query: ', req.query)
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); 
+  res.send({ express: 'yay you just called /search' }); 
   
 });
 
-
-
-var request = require('request'); // "Request" library
-
-var client_id = '045fac98505c497d82d49d8b21a3b553'; // Your client id
-var client_secret = '484fef1c1d0649ff8e87637f8b93b642'; // Your secret
 
 // your application requests authorization
 var authOptions = {
